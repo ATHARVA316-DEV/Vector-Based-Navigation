@@ -1,9 +1,9 @@
-# Central Complex Navigation System: AI Prompt Framework
+# Central Complex Navigation System: Framework
 
 ## Overview
-This document provides a comprehensive prompt engineering framework for instructing AI systems to create the Central Complex Navigation System based on the Le Moël et al. (2019) research on insect vector-based navigation.
+This document provides framework to create the Central Complex Navigation System based on the Le Moël et al. (2019) research on insect vector-based navigation.
 
-## Core Prompt Architecture
+## Core Architecture
 
 ### Part 1: System Initialization & Context Setting
 
@@ -248,24 +248,3 @@ DOCUMENTATION REQUIREMENTS:
 - Usage examples and troubleshooting guide
 - Extension points for future development
 ```
-
-## Usage Instructions
-
-To use this framework:
-
-1. **Initialize the conversation** with the system initialization prompt
-2. **Provide technical specifications** to ensure biological accuracy
-3. **Request step-by-step implementation** following the behavioral modules
-4. **Iterate and refine** specific components as needed
-5. **Test and validate** using the quality assurance criteria
-
-## Expected Output
-
-The AI system should generate:
-- Complete Python implementation (500-800 lines)
-- Real-time visualization system
-- Detailed biological explanations
-- Interactive parameter controls
-- Comprehensive testing examples
-
-This framework ensures the AI creates a scientifically accurate, fully functional, and visually compelling implementation of the central complex navigation system.

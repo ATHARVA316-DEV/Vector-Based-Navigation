@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Complex Navigation System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>Central Complex Navigation System</h1>
+                <p class="subtitle">Biological AI Navigation Simulation</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat">
+                    <span class="stat-label">Steps:</span>
+                    <span id="step-counter">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Success Rate:</span>
+                    <span id="success-rate">0%</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="app-main">
+            <!-- Left Sidebar - Controls -->
+            <aside class="control-panel">
+                <div class="control-section">
+                    <h3>Simulation Controls</h3>
+                    <div class="control-group">
+                        <button id="play-pause-btn" class="btn btn--primary btn--lg btn--full-width">
+                            <span id="play-pause-text">Play</span>
+                        </button>
+                        <button id="reset-btn" class="btn btn--secondary btn--full-width">Reset</button>
+                    </div>
+                    <div class="control-group">
+                        <label class="form-label">Speed: <span id="speed-value">1.0x</span></label>
+                        <input type="range" id="speed-slider" class="form-control" min="0.1" max="5" step="0.1" value="1">
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>Environment Settings</h3>
+                    <div class="control-group">
+                        <label class="form-label">Arena Size: <span id="arena-size-value">200</span></label>
+                        <input type="range" id="arena-size" class="form-control" min="100" max="500" step="10" value="200">
+                    </div>
+                    <div class="control-group">
+                        <label class="form-label">Food Sources: <span id="food-count-value">2</span></label>
+                        <input type="range" id="food-count" class="form-control" min="1" max="5" step="1" value="2">
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>Agent Parameters</h3>
+                    <div class="control-group">
+                        <label class="form-label">Step Size: <span id="step-size-value">1.0</span></label>
+                        <input type="range" id="step-size" class="form-control" min="0.5" max="3" step="0.1" value="1">
+                    </div>
+                    <div class="control-group">
+                        <label class="form-label">Memory Decay</label>
+                        <input type="range" id="memory-decay" class="form-control" min="0.995" max="1" step="0.0001" value="0.9998">
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>Navigation Modes</h3>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="nav-mode" value="exploration" checked>
+                            <span>Exploration</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="nav-mode" value="homing">
+                            <span>Homing</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="nav-mode" value="food-return">
+                            <span>Food Return</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="nav-mode" value="manual">
+                            <span>Manual Control</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="control-section preset-section">
+                    <h3>Preset Scenarios</h3>
+                    <button class="btn btn--outline btn--sm btn--full-width" data-preset="basic">Basic Foraging</button>
+                    <button class="btn btn--outline btn--sm btn--full-width" data-preset="multi">Multi-location Routes</button>
+                    <button class="btn btn--outline btn--sm btn--full-width" data-preset="shortcuts">Novel Shortcuts</button>
+                </div>
+            </aside>
+
+            <!-- Center Panel - Visualization -->
+            <main class="visualization-panel">
+                <div class="canvas-container">
+                    <canvas id="nav-canvas" width="600" height="600"></canvas>
+                    <div class="canvas-overlay">
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: var(--color-orange-500)"></div>
+                                <span>Agent</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: var(--color-teal-500)"></div>
+                                <span>Nest</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: var(--color-success)"></div>
+                                <span>Food</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color trail"></div>
+                                <span>Trail</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas-controls">
+                    <button id="clear-trail" class="btn btn--secondary btn--sm">Clear Trail</button>
+                    <button id="center-view" class="btn btn--secondary btn--sm">Center View</button>
+                    <span class="canvas-info">Click to place food • Right-click to move nest</span>
+                </div>
+            </main>
+
+            <!-- Right Sidebar - Neural Activity -->
+            <aside class="neural-panel">
+                <div class="neural-section">
+                    <h3>TB1 Compass Neurons</h3>
+                    <p class="neural-description">Ring attractor compass neurons encoding current heading direction</p>
+                    <div class="neural-display">
+                        <div id="tb1-display" class="compass-display"></div>
+                        <div class="compass-center">
+                            <div id="heading-indicator" class="heading-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="neural-section">
+                    <h3>CPU4 Path Integration</h3>
+                    <p class="neural-description">Path integration neurons maintaining accumulated home vector</p>
+                    <div class="neural-display">
+                        <div id="cpu4-display" class="bar-display"></div>
+                        <div class="path-info">
+                            <span>Distance: <span id="home-distance">0</span></span>
+                            <span>Direction: <span id="home-direction">0°</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="neural-section">
+                    <h3>CPU1 Memory Comparison</h3>
+                    <p class="neural-description">Memory comparison neurons for stored food locations</p>
+                    <div class="neural-display">
+                        <div id="cpu1-display" class="memory-display"></div>
+                        <div class="memory-info">
+                            <span>Active Memories: <span id="active-memories">0</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="neural-section">
+                    <h3>System Status</h3>
+                    <div class="status-display">
+                        <div class="status-item">
+                            <span class="status-label">Current State:</span>
+                            <span id="current-state" class="status status--info">Exploration</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Food Found:</span>
+                            <span id="food-found">0</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Returns Home:</span>
+                            <span id="returns-home">0</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

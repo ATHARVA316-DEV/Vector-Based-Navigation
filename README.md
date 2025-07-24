@@ -114,7 +114,12 @@ For batch experiments (e.g. parameter sweeps) use `central_complex_navigation_si
 ## Screenshots & Media
 index.html,style.css,app.js(web)
 <img width="1915" height="972" alt="image" src="https://github.com/user-attachments/assets/4b980c9d-8e44-4136-b0ea-a59f8e818e18" />
-
+Central Complex Navigation System (Exploration Enhanced)
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/14bd46c1-a66b-40d2-bfdd-31372f21ac40" />
+Central Complex Navigation System (Improved)
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/6e62e7dd-838e-49bb-b630-b2055487b0d8" />
+Central Complex Navigation System
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/45c0e066-d8ed-4ef8-88a9-df57dbddfc1d" />
 
 
 ## Research Background

@@ -16,9 +16,6 @@ The Central Complex as a Potential Substrate for Vector Based Navigation: A Comp
 5. [Usage Examples](#usage-examples)
 6. [Screenshots &amp; Media](#screenshots--media)
 7. [Research Background](#research-background)
-8. [Contributing](#contributing)
-9. [License](#license)
-10. [Citation](#citation)
 
 ---
 

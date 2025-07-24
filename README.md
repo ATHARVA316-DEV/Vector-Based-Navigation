@@ -80,10 +80,6 @@ $ open index.html        # macOS
 ```
 Use the side panel to adjust speed, number of food sources, PI decay etc.
 
-> **Tip 💡** To share the demo online, host the repository with GitHub Pages or any static server.
-
----
-
 ## Repository Layout
 
 ```
@@ -97,14 +93,6 @@ Vector-Based-Navigation/
 │   └── media/                               # ← put images & GIFs here
 └── README.md
 ```
-
-Add any screenshots, GIF recordings or architecture diagrams to **`docs/media/`** and reference them with a relative path, e.g.
-```md
-![Trajectory](docs/media/trajectory.gif)
-```
-GitHub automatically shows the image in the README.
-
----
 
 ## Usage Examples
 
@@ -124,14 +112,10 @@ For batch experiments (e.g. parameter sweeps) use `central_complex_navigation_si
 ---
 
 ## Screenshots & Media
+index.html,style.css,app.js(web)
+<img width="1915" height="972" alt="image" src="https://github.com/user-attachments/assets/4b980c9d-8e44-4136-b0ea-a59f8e818e18" />
 
-> Replace the placeholders below with your own captures.
 
-| Trajectory & Neural Activity | Web GUI |
-|------------------------------|---------|
-| ![Demo](docs/media/demo_traj.gif) | ![GUI](docs/media/gui.png) |
-
----
 
 ## Research Background
 * Model architecture follows the CX vector model by Le Moël *et al.* 2019 [44].
@@ -142,19 +126,3 @@ See `central-complex-algorithm.md` for a full literature review.
 
 ---
 
-## Contributing
-Pull requests are welcome!  Feel free to open issues for feature requests, bug reports or research discussions.  Please format code with **black** and include docstrings.
-
----
-
-## License
-
-[MIT](LICENSE) © 2025 Atharva Kulkarni & Contributors
-
----
-
-## Citation
-If you use this codebase in academic work, please cite:
-```text
-Kulkarni A. 2025. Vector-Based Navigation: Central Complex as a Potential Substrate for Vector Navigation. GitHub repository. https://github.com/ATHARVA316-DEV/Vector-Based-Navigation
-```
